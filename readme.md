@@ -1,4 +1,4 @@
-# interfascist 0.9.0
+# interfascist 0.9.1
 
 Validate JavaScript objects against interfaces
 
