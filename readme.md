@@ -21,6 +21,7 @@ var geometryInterfaces = {
 
 var validator = new Interfascist( geometryInterfaces );
 console.log( validator.validate({ x: 10, y: 5.5 }, 'Point') ); //true
+```
 
 ## How
 
