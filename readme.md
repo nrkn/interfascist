@@ -1,7 +1,10 @@
-# interfascist
+# interfascist 0.9.0
 
-Validate JavaScript objects against interfaces. For node.js or the browser via
-[browserify](https://github.com/substack/node-browserify)
+Validate JavaScript objects against interfaces
+
+```
+npm install interfascist
+```
 
 ## What
 
@@ -22,12 +25,12 @@ var geometryInterfaces = {
     size: 'Size'
   },
   Color: [ 'red', 'green', 'blue' ],
-  Shape: {
+  Colored: {
     fill: 'Color',
     stroke: 'Color'
   },
   ColoredRectangle: {
-    extends: [ 'Rectangle', 'Shape' ]
+    extends: [ 'Rectangle', 'Colored' ]
   },
   RedRectangle: {
     extends: [ 'ColoredRectangle' ],
@@ -76,3 +79,7 @@ to write a better readme.
 
 It's overwrought for simple validation - if your needs are complex it may suit
 you better. It didn't suit me.
+
+## License
+
+MIT

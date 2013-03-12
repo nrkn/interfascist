@@ -1,6 +1,6 @@
 {
   "name": "interfascist",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "validate JavaScript objects against interfaces",
   "homepage": "http://github.com/nrkn/interfascist",
   "bugs": {
@@ -27,7 +27,7 @@
   },
   "author": {
     "name": "Nik Coughlin",
-    "email" "nrkn.com@gmail.com",
+    "email": "nrkn.com@gmail.com",
     "url": "http://nrkn.com"
   },
   "license": "MIT"  

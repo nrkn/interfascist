@@ -184,7 +184,7 @@ var _ = require( 'underscore' );
       var extended = self.extend( extName );
       _( result.keys ).extend( extended.keys );
       _( result.values ).extend( extended.values );
-      result.constructorName = extended.constructorName;
+      result.constructorName = extended.constructorName || result.constructorName;
     });
     _( result.keys ).extend( def.keys );
     _( result.values ).extend( def.values );
