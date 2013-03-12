@@ -1,6 +1,7 @@
 # interfascist
 
-Validate JavaScript objects against interfaces.
+Validate JavaScript objects against interfaces. For node.js or the browser via
+[browserify](https://github.com/substack/node-browserify)
 
 ## What
 
@@ -67,6 +68,9 @@ console.log( validator.validate( rect3, 'Rectangle' ) ); //true
 console.log( validator.validate( rect3, 'ColoredRectangle' ) ); //false
 
 ```
+
+There's some more functionality, check out test/test.js until I have a chance
+to write a better readme.
 
 ## Why not json-schema?
 
