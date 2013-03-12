@@ -7,7 +7,7 @@ Validate JavaScript objects against interfaces.
 You declare an interface and then you can test if given objects match it. For
 example:
 
-'''javascript
+```javascript
 var geometryInterfaces = {
   Point: {
     x: 'Number',
