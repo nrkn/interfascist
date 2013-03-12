@@ -4,8 +4,7 @@ Validate JavaScript objects against interfaces.
 
 ## What
 
-You declare an interface and then you can test if given objects match it. For
-example:
+You declare interfaces and then you can test if given objects match them. 
 
 ```javascript
 var geometryInterfaces = {
@@ -13,19 +12,61 @@ var geometryInterfaces = {
     x: 'Number',
     y: 'Number'
   },
-  Line: {
-    start: 'Point',
-    end: 'Point'
+  Size: {
+    width: 'Number',
+    height: 'Number'
+  },
+  Rectangle: {
+    location: 'Point',
+    size: 'Size'
+  },
+  Color: [ 'red', 'green', 'blue' ],
+  Shape: {
+    fill: 'Color',
+    stroke: 'Color'
+  },
+  ColoredRectangle: {
+    extends: [ 'Rectangle', 'Shape' ]
+  },
+  RedRectangle: {
+    extends: [ 'ColoredRectangle' ],
+    values: {
+      fill: 'red'
+    }
   }
 };
 
 var validator = new Interfascist( geometryInterfaces );
-console.log( validator.validate({ x: 10, y: 5.5 }, 'Point') ); //true
+
+var rect1 = {
+  location: { x: 1.3, y: 13 },
+  size: { width: 25, height: 96.3 },
+  fill: 'red',
+  stroke: 'blue'
+}
+
+var rect2 = {
+  location: { x: 41, y: 26 },
+  size: { width: 55.3, height: 18 }  
+}
+
+var rect3 = {
+  location: { x: 1.3, y: 13 },
+  size: { width: 25, height: 96.3 },
+  fill: 'purple',
+  stroke: 'purple'
+}
+
+console.log( validator.validate( rect1, 'Point' ) ); //false
+console.log( validator.validate( rect1, 'Rectangle' ) ); //true
+console.log( validator.validate( rect1, 'ColoredRectangle' ) ); //true
+console.log( validator.validate( rect1, 'RedRectangle' ) ); //true
+console.log( validator.validate( rect2, 'Rectangle' ) ); //true
+console.log( validator.validate( rect2, 'ColoredRectangle' ) ); //false
+console.log( validator.validate( rect3, 'Rectangle' ) ); //true
+console.log( validator.validate( rect3, 'ColoredRectangle' ) ); //false
+
 ```
-
-## How
-
-
 
 ## Why not json-schema?
 
