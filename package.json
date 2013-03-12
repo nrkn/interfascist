@@ -1,0 +1,34 @@
+{
+  "name": "interfascist",
+  "version": "0.9.0",
+  "description": "validate JavaScript objects against interfaces",
+  "homepage": "http://github.com/nrkn/interfascist",
+  "bugs": {
+    "url": "http://github.com/nrkn/interfascist/issues",
+    "email": "nrkn.com@gmail.com"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/nrkn/interfascist.git"
+  },
+  "keywords": [
+    "validate",
+    "validator",
+    "schema",
+    "interface",
+    "interfaces",
+    "npm",
+    "javascript",
+    "json"
+  ],
+  "dependencies": {
+    "underscore": "1.4.4"
+  },
+  "author": {
+    "name": "Nik Coughlin",
+    "email" "nrkn.com@gmail.com",
+    "url": "http://nrkn.com"
+  },
+  "license": "MIT"  
+}

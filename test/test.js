@@ -1,5 +1,5 @@
 var _ = require( 'underscore' );
-var Interfascist = require( '../interfascist' );
+var Interfascist = require( '../index' );
 var assert = require( 'assert' );
 
 describe( 'interfascist', function(){ 
