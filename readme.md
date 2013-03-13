@@ -1,4 +1,4 @@
-# interfascist 0.9.1
+# interfascist
 
 Validate JavaScript objects against interfaces
 
@@ -74,6 +74,15 @@ console.log( validator.validate( rect3, 'ColoredRectangle' ) ); //false
 
 There's some more functionality, check out test/test.js until I have a chance
 to write a better readme.
+
+## Tests
+
+Run with mocha from the root of interfascist
+
+```
+npm install -g mocha
+mocha
+```
 
 ## Why not json-schema?
 
