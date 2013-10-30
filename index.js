@@ -1,6 +1,8 @@
 var _ = require( 'underscore' );
 
 (function(){
+  'use strict';
+  
   function Interfascist( defs ) {
     this.definitions = defs;    
     var self = this;
@@ -33,12 +35,12 @@ var _ = require( 'underscore' );
         };
       }
     });
-  };
+  }
   
   Interfascist.UnexpectedTypeError = function( message ) {
     this.name = 'UnexpectedTypeError';
     this.message = message || '';
-  }
+  };
   Interfascist.UnexpectedTypeError.prototype = new Error();
   
   _.mixin({
@@ -198,12 +200,14 @@ var _ = require( 'underscore' );
     var extended = this.extend( name );
     
     if( !_( extended.values ).every( function( value, key ) {
-      return obj[ key ] === value;
+      return _( obj ).has( key ) && obj[ key ] === value;
     }) ){
       return false;
     }
-    
     if( !_( extended.keys ).every( function( value, key ) {
+      if( !_( obj ).has( key ) ){      
+        return false;
+      }      
       if( value.typeOf ) {
         return self.validate( obj[ key ], value.typeOf );
       }

@@ -1,6 +1,6 @@
 {
   "name": "interfascist",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "validate JavaScript objects against interfaces",
   "homepage": "http://github.com/nrkn/interfascist",
   "bugs": {

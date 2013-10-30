@@ -75,6 +75,14 @@ describe( 'interfascist', function(){
     },
     UserType: {
       constructorName: 'Interfascist'
+    },
+    Point: {
+      x: 'Number',
+      y: 'Number'
+    },
+    Line: {
+      start: 'Point',
+      end: 'Point'
     }
   };
 
@@ -83,12 +91,20 @@ describe( 'interfascist', function(){
   describe( 'simple type', function() {
     it( 'should validate a simple type', function(){
       assert( validator.validate( 'chicken', 'String' ) );
+      assert( validator.validate( 42, 'Number' ) );
       assert( !validator.validate( 42, 'String' ) );
       assert.throws( function(){
         validator.validate( 'chicken', 'chicken' );
       }, Interfascist.UnexpectedTypeError );            
     });
   });
+  
+  describe( 'mixed type', function() {
+    it( 'should validate a mixed type', function(){
+      assert( validator.validate( { start: { x: 5, y: 2 }, end: { x: 0, y: 3 } }, 'Line' ) );
+      assert( !validator.validate( 42, 'Line' ) );
+    });
+  });  
   
   describe( 'one of a simple type', function(){
     it( 'should validate if one of the simple types matches', function(){
@@ -247,6 +263,7 @@ describe( 'interfascist', function(){
       assert( validator.validate( { 
         colors: [ 'red', 'green', 'red' ]
       }, [ 'AllColors', 'AllAnimals' ] ) );
+      assert( validator.validate( [ 'red', 'green', 'blue' ], { arrayOf: 'String' } ) );
       assert( !validator.validate( { 
         colors: [ 'red', 'green', 'chicken' ]
       }, 'AllColors' ) );    
@@ -290,6 +307,13 @@ describe( 'interfascist', function(){
       assert( validator.validate( undefined, 'any' ) );    
     });
   });
+  
+  describe( 'undefined', function(){
+    it( 'should make sure that undefined works', function(){
+      assert( validator.validate( undefined, 'undefined' ) );    
+      assert( !validator.validate( 'foo', 'undefined' ) );    
+    });
+  });  
   
   describe( 'constructor name', function(){
     it( 'should make sure that the object is an instance of given constructer', function(){
